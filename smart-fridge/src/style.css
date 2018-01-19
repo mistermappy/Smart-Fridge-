@@ -1,0 +1,20 @@
+html, body{
+  height: 100%;
+  width: auto;
+  display: inline-flex;
+  justify-content: space-around;
+  background-image: url("http://images.samsung.com/is/image/samsung/p5/au/family-hub-refrigerator/glance/slide01-fridge.png?$ORIGIN_PNG$");
+  background-size: 1250px 750px;
+}
+
+.item-list {
+
+  background-color: #ECF0F1  ;
+  text-align: center;
+}
+
+.main-fridge {
+  background-color: #ECF0F1  ;
+  text-align: center;
+  font-family: 'Ubuntu'
+}
