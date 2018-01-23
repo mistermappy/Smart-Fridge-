@@ -24,8 +24,9 @@ class Items extends Component {
 			)
 	}
 
-	deleteItem(itemID){
-		this.props.discardFood(itemID);
+	deleteItem(itemId){
+		this.props.discardFood(itemId);
+		console.log(this.props.items.length)
 	}
 
 	getExpirationDate(date){

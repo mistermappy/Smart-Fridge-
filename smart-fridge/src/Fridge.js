@@ -5,16 +5,9 @@ import AddItemForm from './AddItemForm.js';
 
 let items = [
         {
+          id: 1,
           name: 'Pizza',
-          expires: '2/15/2017'
-        },
-        {
-          name: 'Chicken Pad Thai',
-          expires: '2/26/2017'
-        },
-        {
-          name: 'Lemon Cake',
-          expires: '2/13/2017'
+          expires: '2017-01-21'
         }
       ]
 
@@ -24,7 +17,7 @@ class Fridge extends Component {
 
     this.state = {
         items: items,
-        itemID: undefined
+        itemID: null
     }
 
     this.discardFood = this.discardFood.bind(this);
@@ -33,8 +26,13 @@ class Fridge extends Component {
 
   componentWillMount(){
     this.setState({
+      items: items,
       itemID : this.state.items[this.state.items.length-1].id
     })
+  }
+
+  componentDidMount() {
+    this.discardFood(items);
   }
 
   render(){
@@ -48,7 +46,7 @@ class Fridge extends Component {
         />
         <AddItemForm
             restockFridge = {this.restockFridge}
-            itemID = {this.itemID}
+            itemID = {this.state.itemID}
         />
       </div>
       )
@@ -73,11 +71,10 @@ class Fridge extends Component {
 
   restockFridge(item) {
     let items = [...this.state.items];
-
-    items.push(item);
-
+    items.length < 10 ? items.push(item) : alert("Full fridge. Eat something or throw something away.");
     this.setState({
-      items
+      items,
+      itemID: this.state.itemID +1
     })
   }
 }
