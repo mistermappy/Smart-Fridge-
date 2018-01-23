@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+		import React,{Component} from 'react';
 import "./style.css";
 
 class AddItemForm extends Component {
@@ -16,7 +16,7 @@ class AddItemForm extends Component {
 
 	render(){
 		return(
-			<div class='item-form'>
+			<div className='item-form'>
 				<form onSubmit={this.submitForm}>
 				<h1>Add Item</h1>
 					<input type='text' placeholder='Type an item' name='itemName' value={this.state.itemName}
@@ -31,17 +31,17 @@ class AddItemForm extends Component {
 			)
 	}
 
-	getItemData(e){
+	getItemData(event){
 		this.setState({
-			[e.target.name] : e.target.value
+			[event.target.name] : event.target.value
 		})
 	}
 
-	submitForm(e){
-		e.preventDefault();
+	submitForm(event){
+		event.preventDefault();
 
 		const newItem = {
-			id: this.props.itemIndex + 1,
+			id: this.props.itemID + 1,
 			name: this.state.itemName,
 			expires: this.state.itemExpirationDate
 		}
